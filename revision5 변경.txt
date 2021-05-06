@@ -1,0 +1,23 @@
+revision 6. 변경 사항
+1. jobList-02user mvc.txt
+	US-08이하 하나씩 밀림
+
+2. Exception 변경
+- UserJob.JobFailException 삭제
+	US-06	throw UserJob.PasswordCheckFailException
+	US-09	throw UserJob.JoinCheckFailException
+
+3. ZBoardAdvice에서 User 부분 완료
+
+4. ZBoardRestAdvice에서 User 부분 완료
+- ControllerAdvice로 변경
+	IllegalAccessException에서 오류메시지를 출력할 뷰페이지가 없음
+
+5. join.jsp, info.jsp, password_check.jsp, find.jsp
+- 비밀번호에 대한 정규식 패턴을 변경
+- 오타 등 수정
+
+6. 로그인 성공 핸들러
+- memoMapper.existsByIsReadIsFalse SQL 수정
+
+7. UserController, UserRestController 접근 통제를 @Secured로 변경

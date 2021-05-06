@@ -1,0 +1,57 @@
+### BoardRestController ###
+----------------------------------------------------------------------------------------------------------------
+@PostMapping("/boards/image")
+B-01. ck 이미지 업로드 : MultipartFile upload
+	BS-01. 서비스												CKResponse
+		
+----------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------
+@PostMapping("/comments")
+B-02. 댓글 추가 : Comment comment
+	BS-02. 서비스												List<Comment>			BoardJob.BoardNotFoundException
+		UDAO-06. findById
+		CDAO-01. insert
+		BDAO-01. update
+		CDAO-02. findAllByBno
+----------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------
+@DeleteMapping("/comments")
+B-03. 댓글 삭제 : Integer cno, Integer bno, Principal principal
+	BS-03. 서비스												List<Comment>			BoardJob.BoardNotFoundException, BoardJob.IllegalAccessException
+		CDAO-03. delete
+		BDAO-01. update
+		CDAO-02. findAllByBno
+----------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------
+@GetMapping("/attachments/{ano}")
+B-04. 첨부파일 보기 : Integer ano
+	BS-04. 서비스												Attachment				BoardJob.BoardNotFoundException
+		AttachmentDao-01.	findById
+----------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------
+@DeleteMapping("/attachments/{ano}")
+B-05. 첨부파일 삭제 : Integer cno, Integer bno, Principal principal
+	BS-05. 서비스												List<Attachment>		BoardJob.BoardNotFoundException, BoardJob.IllegalAccessException
+		AttachmentDao-01.	findById
+		AttachmentDao-02.	delete
+		BDAO-01. update
+		AttachmentDao-03.	findAllByBno
+----------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------
+@PatchMapping("/board/goodOrBad")
+B-06. 글 추천 또는 비추 : Integer bno, Boolean isGood, Principal principal
+	BS-06. 서비스												Integer					BoardJob.BoardNotFoundException, BoardJob.IllegalAccessException
+		BDAO-02.	findById
+		UBDAO-01.	existsById
+		BDAO-01.	update
+----------------------------------------------------------------------------------------------------------------
